@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd     
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	<!--解析com.yhc.controller包下的注解 -->
+	<context:component-scan base-package="com.kexun.controller" />
+	<!-- 配置控制器或Handle,映射"/login"请求映射一个请求地址 -->
+	<bean name="/login" class="com.kexun.controller.MyController" />
+	<!--处理映射器将bean的name作为url进行查找,需要在配置Handle时指定name,即url地址-->
+	<!-- 以下两个分发控制器用于将Controller类的操作转换为可执行的网络文件-->
+	<bean
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	<!--SimpleControllerHandlerAdapter是一个处理器适配器,所有处理适配器都要实现 HandlerAdapter接口 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<!--视图解析器 ,用于管理前段html,jsp,css,img等-->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver" />
+	<!--配置静态资源的读取位置与映射-->
+	<mvc:resources location="/" mapping="/*.html"></mvc:resources>
+</beans>

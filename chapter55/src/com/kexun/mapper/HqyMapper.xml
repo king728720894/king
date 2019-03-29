@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--命名空间指明了在哪个类下,此类名可以不用与本配置文件相同-->
+<mapper namespace="com.kexun.dao.HqyDao">
+	<!--自定义结果集 stuMap;type要么是在总配置中的别名,那么就是实体类的全路径名com.yhc-->
+	<resultMap id="stuMap" type="com.kexun.entity.Hqy"/>
+	<!--自定义的字段组-->
+	<!-- <sql id="Base_Column_List">
+		id,name,sex,face 
+	</sql> -->
+	<select id="selectAll" resultMap="stuMap">
+		select * from hqy
+	</select>
+	<!-- <insert id="add">insert into hqy values(#{id,jdbcType=NUMBER},#{name,jdbcType=VARCHAR2},#{sex,jdbcType=VARCHAR2},#{face,jdbcType=NUMBER})</insert> -->
+</mapper>

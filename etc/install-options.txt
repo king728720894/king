@@ -1,0 +1,7 @@
+Path Option: BashOnly
+SSH Option: OpenSSH
+CRLF Option: CRLFAlways
+Bash Terminal Option: ConHost
+Performance Tweaks FSCache: Enabled
+Use Credential Manager: Enabled
+Enable Symlinks: Disabled
